@@ -61,8 +61,8 @@ Below are two basic queries to get you started.
 
 Query
 ```
-query getPerson ( $id : Int){
-  person (id: $id) {
+{
+  person (id: 1) {
     id
     firstName
     lastName
@@ -82,28 +82,15 @@ query getPerson ( $id : Int){
 }
 ```
 
-Variables
-```
-{
-  "id": 1
-}
-```
 <br/>
 
 **Example people query**
 
 Query
 ```
-query getPersons ( $lastname : String){
-  people (lastName: $lastname) {
-    fullName
-	}
-}
-```
-
-Variables
-```
 {
-  "lastname": "ack"
+  people (lastName: "ack") {
+    fullName
+  }
 }
 ```
