@@ -2,7 +2,7 @@
 
 ## What am I looking at?
 
-It's a GraphQL project using node and express which can be quickly setup so you can have a play around with GraphQL. Obvs!! :)
+It's a GraphQL project using node and express which can be quickly setup so you can have a play around with GraphQL. Obvs!! :grin:
 
 
 ## Getting Started
