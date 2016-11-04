@@ -17,7 +17,7 @@ It's a GraphQL project using node and express which can be quickly setup so you 
 
     Find the green 'Clone or download' and download the zipped project.
 
-    Extract the files from inside the GraphQL-Node-Example-master folder into a folder of your choice (eg. .\graphql).
+    Extract the files from inside the GraphQL-Node-Example-master folder into a folder of your choice.
 
     Open up your favourite command-line interface and navigate to your project folder and type and execute.
 
