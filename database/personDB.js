@@ -1,8 +1,8 @@
-var loki = require("lokijs");
-var db = new loki('loki.json');
+var loki = require("lokijs")
+var db = new loki('loki.json')
 
 // Create Person collection (table) 
-module.exports = Person = db.addCollection('person', { unique: ['id'] });
+module.exports = Person = db.addCollection('person', { unique: ['id'] })
 
 // Add entries to Person collection
 Person.insert({
@@ -14,7 +14,7 @@ Person.insert({
     "friends": [2,4,6],
     "skills": [1,5,8],
     "country": "gb"    
-});
+})
 
 Person.insert({
     "id": 2,
@@ -25,7 +25,7 @@ Person.insert({
     "friends": [1,5,6],
     "skills": [2,3,5,8,9],
     "country": "us"    
-});
+})
 
 Person.insert({
     "id": 3,
@@ -36,7 +36,7 @@ Person.insert({
     "friends": [2,3,5],
     "skills": [4,6,7,8],
     "country": "gb"    
-});
+})
 
 Person.insert({
     "id": 4,
@@ -47,7 +47,7 @@ Person.insert({
     "friends": [2],
     "skills": [2,9],
     "country": "fr"    
-});
+})
 
 Person.insert({
     "id": 5,
@@ -58,7 +58,7 @@ Person.insert({
     "friends": [1,2,3,4],
     "skills": [2,4,5,7,9],
     "country": "es"    
-});
+})
 
 Person.insert({
     "id": 6,
@@ -69,4 +69,4 @@ Person.insert({
     "friends": [2,5],
     "skills": [1,4,7,8],
     "country": "gb"    
-});
+})

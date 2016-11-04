@@ -5,17 +5,14 @@ const {
   GraphQLFloat,
   GraphQLInt,
   GraphQLBoolean
-} = require('graphql'); // Load the graphql scalar types used in building the person type
-
-// Load the database
-const db = require("../database.js");
+} = require('graphql') // Load the graphql scalar types used in building the person type
 
 // Load the types that are referenced by the person type
-const SkillType = require("./skill.js");
-const CountryType = require("./country.js");
+const SkillType = require("./skill.js")
+const CountryType = require("./country.js")
 
 // Load the date format enum 
-const dateFormatEnum = require("../enums/dateFormatEnum.js");
+const dateFormatEnum = require("../enums/dateFormatEnum.js")
 
 // Create the Person Type
 module.exports = PersonType = new GraphQLObjectType({
@@ -44,7 +41,7 @@ module.exports = PersonType = new GraphQLObjectType({
       description: 'The persons full name',
 
       // Use the resolve field to concatenate the firstName and lastName fields
-      resolve: (person) => person.firstName + " " + person.lastName
+      resolve: (person) => `${person.firstName} ${person.lastName}`
     },
     gender: {
       type: GraphQLString,
@@ -64,23 +61,24 @@ module.exports = PersonType = new GraphQLObjectType({
         format: { type: dateFormatEnum }
       },
 
-      // The resolve function picks up the format argument using the second parameter
+      // The resolve function picks up the format argument using the second function parameter
       // To get the args value you can either: 
       //  - destructure the args object (as seen below)
       //  - select from the args object (as seen in the friends resolve function below)  
       resolve: function(person, {format}) {
+        
         let date = new Date(person.dateOfBirth)
 
         switch(format) {
           case "ISOString":
             date = date.toISOString()
-            break;
+            break
           case "DateString":
             date = date.toDateString()  
-            break;
+            break
           case "LocaleString":
             date = date.toLocaleDateString()
-            break;
+            break
           default:
             date = date.valueOf()
         } 
@@ -94,17 +92,21 @@ module.exports = PersonType = new GraphQLObjectType({
       args: {
         top: { type: GraphQLInt }
       },
-      resolve: (person, args) => db.person.chain().find({ id: { '$in' : person.friends } }).limit(args.top).data()  
+      // Note that the resolve function uses the database connection that was passed through the conext object.
+      resolve: (person, args, context) => context.db.person.chain().find({ id: { '$in' : person.friends } }).limit(args.top).data()  
     },
     skills: {
       type: new GraphQLList(SkillType),  // The skills field returns a list of SkillType objects
       description: "A list of the persons skills",
-      resolve: (person) => db.skills.find({ id: { '$in' : person.skills } })
+      // Note that even though this field doesn't receive any arguments the arg parameter is included so we can access the context parameter.
+      resolve: (person, args, context) => context.db.skills.find({ id: { '$in' : person.skills } })
     },
     country: {
       type: CountryType,  // The country field returns a CountryType object
       description: "The country the person lives in",
-      resolve: (person) => db.country.by("id", person.country )
+      // As above, this field doesn't receive any arguments but needs access to the context parameter. 
+      // This time I've used an underscore to denote that no arguments are expected.
+      resolve: (person, _, context) => context.db.country.by("id", person.country )
     },
   })
-});
+})

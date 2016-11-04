@@ -2,7 +2,7 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt,
-} = require('graphql'); // Load the graphql scalar types used in building the skill type
+} = require('graphql') // Load the graphql scalar types used in building the skill type
 
 // Create the Skill Type
 module.exports = SkillType = new GraphQLObjectType({
@@ -18,4 +18,4 @@ module.exports = SkillType = new GraphQLObjectType({
       description: 'The skill description'
     }
   })
-});
+})

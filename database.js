@@ -1,4 +1,4 @@
-// Load the different databse tables
+// Load the different database tables
 const person = require("./database/personDB.js")
 const skills = require("./database/skillsDB.js")
 const country = require("./database/countryDB.js")
