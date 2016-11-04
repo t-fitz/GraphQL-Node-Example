@@ -15,8 +15,6 @@ It's a [GraphQL](http://graphql.org/) project using [node](https://nodejs.org) a
 
     Head to [https://nodejs.org/](https://nodejs.org/) and download the latest version for your computer.
 
-<br/>
-
 2. **Get the code for this project**
 
     Find the green 'Clone or download' and download the zipped project.
@@ -31,8 +29,6 @@ It's a [GraphQL](http://graphql.org/) project using [node](https://nodejs.org) a
 
     This will install all the node modules that are needed to run the project.
 
-<br/>
-
 3. **Run the node server**
 
     In your command line now type and execute.
@@ -42,8 +38,6 @@ It's a [GraphQL](http://graphql.org/) project using [node](https://nodejs.org) a
     ```
 
     This will start the node server using the server.js file.
-
-<br/>
 
 4. **Profit**
 
