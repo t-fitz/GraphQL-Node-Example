@@ -1,9 +1,11 @@
 # GraphQL-Node-Example
+<br/>
 
 ## What am I looking at?
 
-It's a GraphQL project using node and express which can be quickly setup so you can have a play around with GraphQL. Obvs!! :grin:
+It's a [GraphQL](http://graphql.org/) project using [node](https://nodejs.org) and [express](http://expressjs.com/) which can be quickly setup so you can have a play around with GraphQL. Obvs!! :grin:
 
+<br/>
 
 ## Getting Started
 
@@ -12,6 +14,8 @@ It's a GraphQL project using node and express which can be quickly setup so you 
     As this project is based on node we'll definietly need to have this installed.
 
     Head to [https://nodejs.org/](https://nodejs.org/) and download the latest version for your computer.
+
+<br/>
 
 2. **Get the code for this project**
 
@@ -27,6 +31,8 @@ It's a GraphQL project using node and express which can be quickly setup so you 
 
     This will install all the node modules that are needed to run the project.
 
+<br/>
+
 3. **Run the node server**
 
     In your command line now type and execute.
@@ -37,25 +43,30 @@ It's a GraphQL project using node and express which can be quickly setup so you 
 
     This will start the node server using the server.js file.
 
+<br/>
+
 4. **Profit**
 
-    Navigate to ```localhost:4000/graphql``` in your browser to start writing GraphQL queries with GraphiQL. See the **Example Queries** section for examples of what can be done. 
+    Navigate to ```localhost:4000/graphql``` in your browser to start writing GraphQL queries with [GraphiQL](https://github.com/graphql/graphiql). See the **Example Queries** section for examples of what can be done. 
 
     Look through the code to see what's going on.
 
+<br/>
 
 ## The basic structure of a GraphQL project
 
 **NB:** Documentation is still a work in progress. More words coming soon!!
 
+<br/>
 
 ## Example Queries
 
 Below are two basic queries to get you started.
 
 **Example person query**
+
+Query
 ```
-// query
 query getPerson ( $id : Int){
   person (id: $id) {
     id
@@ -75,23 +86,29 @@ query getPerson ( $id : Int){
     }
   }
 }
+```
 
-// variables
+Variables
+```
 {
   "id": 1
 }
 ```
+<br/>
 
 **Example people query**
+
+Query
 ```
-// query
 query getPersons ( $lastname : String){
   people (lastName: $lastname) {
     fullName
 	}
 }
+```
 
-// variables
+Variables
+```
 {
   "lastname": "ack"
 }
