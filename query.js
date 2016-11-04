@@ -12,8 +12,12 @@ const PersonType = require("./schema/person.js")
 // Define the root Query Type Schema. Called from server.js 
 const queryType = new GraphQLObjectType({
   name: 'Query',
+  
+  // The fields in the root query type will be the queries that you can do from your graphql api.
+  // In this example you can do a person query and a people query
   fields: {
     person: {
+      // The person query uses the Person type to build it's response
       type: PersonType,
 
       // args describes the arguments that the person query accepts
@@ -34,7 +38,8 @@ const queryType = new GraphQLObjectType({
       resolve: (parentObject, {id}, context) => context.db.person.by("id", id)
     },
     people: {
-      type: new GraphQLList(PersonType),  // Returns a list (array) of Person types
+      // The people query also uses the Person type to build it's response but returns a list (array) of Person types.
+      type: new GraphQLList(PersonType), 
       args: {
         lastName: { type: GraphQLString }
       },
