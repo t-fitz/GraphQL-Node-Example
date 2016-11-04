@@ -2,7 +2,7 @@
 
 ## What am I looking at?
 
-What we have here is a GraphQL project using node and express which can be quickly setup so you can have a play around with GraphQL.
+It's a GraphQL project using node and express which can be quickly setup so you can have a play around with GraphQL. Obvs!! :)
 
 
 ## Getting Started
@@ -11,7 +11,7 @@ What we have here is a GraphQL project using node and express which can be quick
   
     As this project is based on node we'll definietly need to have this installed.
 
-    Just head to [https://nodejs.org/](https://nodejs.org/) and download the latest version for your computer.
+    Head to [https://nodejs.org/](https://nodejs.org/) and download the latest version for your computer.
 
 2. **Get the code for this project**
 
