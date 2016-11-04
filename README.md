@@ -4,7 +4,6 @@
 
 What we have here is a GraphQL project using node and express which can be quickly setup so you can have a play around with GraphQL.
 
----
 
 ## Getting Started
 
@@ -44,13 +43,11 @@ What we have here is a GraphQL project using node and express which can be quick
 
     Look through the code to see what's going on.
 
----
 
 ### The basic structure of a GraphQL project
 
 **NB:** Documentation is still a work in progress. More words coming soon!!
 
----
 
 ## Example Queries
 
