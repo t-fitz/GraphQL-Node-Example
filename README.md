@@ -15,7 +15,7 @@ It's a [GraphQL](http://graphql.org/) project using [node](https://nodejs.org) a
 
     Head to [https://nodejs.org/](https://nodejs.org/) and download the latest version for your computer.
 
-2. **Get the code for this project**
+2. **Get the code**
 
     Find the green 'Clone or download' and download the zipped project.
 
