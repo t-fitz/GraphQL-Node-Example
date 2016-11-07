@@ -62,25 +62,26 @@ To get this project working I'm using:
 Let's have a quick look at how this project works once you are up and running.
 
 Here's the steps that happen when a query is sent via the graphiql IDE.
+
 1. The query is sent to the graphql url which was setup in the server.js file (line 10)
 2. Express (via express-graphql) passes this query to the root query type (query.js) that is specified in the express-graphql schema option (line 11, server.js)
 3. The root query type then resolves all the fields that were in the graphql query 
 
   So, for the example person query in the example queries section the root query type would resolve the following fields:
 
-   * person (line 19, query.js)
-    * id (line 22, person.js)
-    * firstName (line 28, person.js)
-    * lastName (line 32, person.js)
+  * person (line 19, query.js)
+   * id (line 22, person.js)
+   * firstName (line 28, person.js)
+   * lastName (line 32, person.js)
+   * fullName (line 39, person.js)
+   * gender (line 46, person.js)
+   * dateOfBirth (line 53, person.js)
+   * friends (line 89, person.js)
     * fullName (line 39, person.js)
-    * gender (line 46, person.js)
-    * dateOfBirth (line 53, person.js)
-    * friends (line 89, person.js)
-     * fullName (line 39, person.js)
-    * skills (line 98, person.js)
-     * description (line 16, skill.js)
-    * country (line 104, person.js)
-     * name (line 15, country.js)
+   * skills (line 98, person.js)
+    * description (line 16, skill.js)
+   * country (line 104, person.js)
+    * name (line 15, country.js)
 
   If the field resolves to another type (eg. when the country field resolve to the country type) then the data from the resolve function gets passed to that type (see line 109 of person.js).
 
