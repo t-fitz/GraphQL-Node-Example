@@ -8,7 +8,7 @@ It's a [GraphQL](http://graphql.org/) project running in node which can be quick
 To get this project working I'm using:
 * [node js](https://nodejs.org) as the web server
 * the [express-graphql](https://github.com/graphql/express-graphql) module to handle the graphql query and to show the graphiql IDE
-* [grapghql-js](https://github.com/graphql/graphql-js) to setup the graphql types
+* [graphql-js](https://github.com/graphql/graphql-js) to setup the graphql types
 * [loki js](https://github.com/techfort/LokiJS) to store our database entries 
 
 <br/>
@@ -69,22 +69,26 @@ Here's the steps that happen when a query is sent via the graphiql IDE.
 
   So, for the example person query in the example queries section the root query type would resolve the following fields:
 
-  * person (line 19, query.js)
+  * person (line 19, query.js) - resolves by getting the person by their id
     * id (line 22, person.js)
     * firstName (line 28, person.js)
     * lastName (line 32, person.js)
     * fullName (line 39, person.js)
     * gender (line 46, person.js)
     * dateOfBirth (line 53, person.js)
-    * friends (line 89, person.js)
+    * friends (line 89, person.js) - resolves by getting a list of persons by their ids. The values come from the parent objects friends array
       * fullName (line 39, person.js)
-    * skills (line 98, person.js)
+    * skills (line 98, person.js) - resolves by getting a list of skills by id. The values come from the parent objects skills array
       * description (line 16, skill.js)
-    * country (line 104, person.js)
+    * country (line 104, person.js) - resolves by getting the country by its id
       * name (line 15, country.js)
 
   If the field resolves to another type (eg. when the country field resolve to the country type) then the data from the resolve function gets passed to that type (see line 109 of person.js).
 
+
+
+<br/>
+<br/>
 
 **NB:** Documentation is still a work in progress. More words coming soon!!
 
@@ -96,7 +100,6 @@ Below are two basic queries to get you started.
 
 **Example person query**
 
-Query
 ```
 {
   person (id: 1) {
@@ -123,7 +126,6 @@ Query
 
 **Example people query**
 
-Query
 ```
 {
   people (lastName: "ack") {

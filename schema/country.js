@@ -1,7 +1,7 @@
 const {
   GraphQLObjectType,
   GraphQLString
-} = require('graphql') // Load the graphql scalar types used in building the country type
+} = require('graphql') // Load the graphql type definitions and scalar types used in building the country type
 
 // Create the Country Type
 module.exports = CountryType = new GraphQLObjectType({
