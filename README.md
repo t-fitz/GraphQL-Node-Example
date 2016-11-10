@@ -57,14 +57,14 @@ To get this project working I'm using:
 
 ----
 
-## The basic structure of this project
+## What's going on in there?
 
 Let's have a quick look at how this project works once you are up and running.
 
-Here's the steps that happen when a query is sent via the graphiql IDE.
+When you send a query through the graphiql IDE here's what happens behind the scenes.
 
 1. The query is sent to the graphql url which was setup in the server.js file (line 10)
-2. Express (via express-graphql) passes this query to the root query type (query.js) that is specified in the express-graphql schema option (line 11, server.js)
+2. Express (via express-graphql) passes this query to the root query type (query.js) that is specified in the express-graphql ```schema``` option (line 11, server.js)
 3. The root query type then resolves all the fields that were in the graphql query 
 
   So, for the example person query in the example queries section the root query type would resolve the following fields:
@@ -85,14 +85,39 @@ Here's the steps that happen when a query is sent via the graphiql IDE.
 
   If the field resolves to another type (eg. when the country field resolve to the country type) then the data from the resolve function gets passed to that type (see line 109 of person.js).
 
+4. Once all the fields are resolved the resulting data comes back to us within a data json object. 
 
+  ```json 
+  {
+    "data": {
+      "person": {
+        "fullName": "Joe Bloggs"
+      }
+    }
+  }
+  ```
+
+  If there are any errors then an errors array is returned.
+
+  ```json
+  {
+    "errors": [
+      {
+        "message": "Argument \"id\" has invalid value a.\nExpected type \"Int\", found a.",
+        "locations": [
+          {
+            "line": 2,
+            "column": 14
+          }
+        ]
+      }
+    ]
+  }
+  ```
 
 <br/>
-<br/>
 
-**NB:** Documentation is still a work in progress. More words coming soon!!
-
-<br/>
+----
 
 ## Example Queries
 

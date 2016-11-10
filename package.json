@@ -1,13 +1,13 @@
 {
-  "name": "simple-graphql-example",
+  "name": "graphql-node-example",
   "version": "1.0.0",
-  "description": "A simple GraphQL project using node",
+  "description": "A GraphQL project using node",
   "main": "server.js",
   "author": "Trevor Fitzgerald",
   "license": "Apache 2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/t-fitz/Simple-GraphQL-Example"
+    "url": "https://github.com/t-fitz/GraphQL-Node-Example"
   },
   "dependencies": {    
     "express": "4.14.0",

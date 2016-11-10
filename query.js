@@ -7,7 +7,7 @@ const {
   GraphQLInt
 } = require('graphql') // Load the graphql type definitions and scalar types for use in building our query type
 
-// Load our Person Type schema
+// Load the type that is referenced by the query type
 const PersonType = require("./schema/person.js")
 
 // Define the root Query Type Schema. Called from server.js 
@@ -50,7 +50,8 @@ const queryType = new GraphQLObjectType({
       args: {
         lastName: { type: new GraphQLNonNull(GraphQLString) }
       },
-      // As above this query doesn't receive any parent object but needs access to the subsequent parameters. 
+
+      // Like the above field this query doesn't receive any parent object but needs access to the subsequent parameters. 
       // This time I've used an underscore to denote that no parent object is expected.
       resolve: function (_, {lastName}, context) {
         return context.db.person.find({'lastName': {'$contains': lastName}});
@@ -59,5 +60,7 @@ const queryType = new GraphQLObjectType({
   }
 })
 
-// initialise the schema
+// Initialise the root level schema
+// A mutation can also be added to the GraphQLSchema definitions
+  // See: http://graphql.org/graphql-js/type/#schema 
 module.exports = new GraphQLSchema({query: queryType})

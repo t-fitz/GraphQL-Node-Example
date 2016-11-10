@@ -14,7 +14,8 @@ app.use('/graphql', graphqlHTTP({
 }))
 
 app.listen(4000)
-console.log('Running a GraphQL API server')
-console.log('Visit localhost:4000/graphql to play with GraphiQL')
+console.log('GraphQL API server started')
+console.log('* Visit localhost:4000/graphql to play with GraphiQL')
+console.log('* Press ctrl+c to stop the server')
 
 // start server with: node server.js
